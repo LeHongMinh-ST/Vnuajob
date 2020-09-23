@@ -51,6 +51,7 @@
       // add flag class to html immediately
       if (isCompact == true) document.querySelector('html').classList.add('preparing-compact-menu');
     </script><!-- END THEME STYLES -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     @yield('css')
     
