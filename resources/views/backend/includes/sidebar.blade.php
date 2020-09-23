@@ -83,42 +83,42 @@
                 <li class="menu-item has-active">
                   <a href="?mod=admin" class="menu-link"><span class="menu-icon fas fa-home"></span> <span class="menu-text">Bảng điều khiển</span></a>
                 </li><!-- /.menu-item -->
+                <li class="menu-header">Việc làm</li>
                 <!-- .menu-item -->
-                <li class="menu-item has-child">
+                <li class="menu-item">
                   <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span class="menu-text">Quản lý bài viết</span> <span class="badge badge-warning">New</span></a> <!-- child menu -->
-                  <ul class="menu">
-                    <li class="menu-item">
-                      <a href="?mod=admin&c=post" class="menu-link">Danh sách bài viết</a>
-                    </li>
-                    <li class="menu-item">
-                      <a href="?mod=admin&c=post&act=create" class="menu-link">Tạo bài viết</a>
-                    </li>
-                  </ul><!-- /child menu -->
                 </li><!-- /.menu-item -->
                 <!-- .menu-item -->
-                <li class="menu-item has-child">
-                  <a href="#" class="menu-link"><span class="menu-icon oi oi-wrench"></span> <span class="menu-text">Quản lý danh mục</span></a> <!-- child menu -->
-                  <ul class="menu">
-                    <li class="menu-item">
-                      <a href="auth-comingsoon-v1.html" class="menu-link">Danh sách danh mục</a>
-                    </li>
-                    <li class="menu-item">
-                      <a href="auth-comingsoon-v2.html" class="menu-link">Tạo danh mục</a>
-                    </li>
-                  </ul><!-- /child menu -->
+                <li class="menu-item">
+                  <a href="#" class="menu-link"><span class="menu-icon oi oi-wrench"></span> <span class="menu-text">Quản lý danh mục việc làm</span></a> <!-- child menu -->
                 </li><!-- /.menu-item -->
+
+                <li class="menu-header">Đơn vị</li>
+
+                <li class="menu-item ">
+                  <a href="#" class="menu-link"><span class="menu-icon fas fa-building"></span> <span class="menu-text">Quản lý công ty</span></a> <!-- child menu -->
+                </li>
+
+                <li class="menu-item ">
+                  <a href="#" class="menu-link"><span class="menu-icon fas fa-graduation-cap"></span> <span class="menu-text">Quản lý khoa</span></a> <!-- child menu -->
+                </li>
+
+                <li class="menu-header">Nhân sự</li>
+
                 <!-- .menu-item -->
-                <li class="menu-item has-child">
+                <li class="menu-item ">
+                  <a href="#" class="menu-link"><span class="menu-icon fas fa-id-badge"></span> <span class="menu-text">Quản lý nhà tuyển dụng</span></a> <!-- child menu -->
+                </li><!-- /.menu-item -->
+
+                <li class="menu-item ">
+                  <a href="#" class="menu-link"><span class="menu-icon fas fa-user-graduate"></span> <span class="menu-text">Quản lý sinh viên</span></a> <!-- child menu -->
+                </li><!-- /.menu-item -->
+
+                <li class="menu-item ">
                   <a href="#" class="menu-link"><span class="menu-icon oi oi-person"></span> <span class="menu-text">Quản lý người dùng</span></a> <!-- child menu -->
-                  <ul class="menu">
-                    <li class="menu-item">
-                      <a href="user-profile.html" class="menu-link">Danh sách người dùng</a>
-                    </li>
-                    <li class="menu-item">
-                      <a href="user-activities.html" class="menu-link">Tạo người dùng</a>
-                    </li>
-                  </ul><!-- /child menu -->
-                </li><!-- /.menu-item -->
+                </li>
+
+                
                 <!-- .menu-item -->
               </ul><!-- /.menu -->
             </nav><!-- /.stacked-menu -->
