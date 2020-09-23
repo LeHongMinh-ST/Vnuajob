@@ -1,4 +1,7 @@
 @extends('backend.layouts.master')
+@section('title')
+  Bảng điều khiển
+@endsection
 @section('contents')
 <div class="wrapper">
     <!-- .page -->

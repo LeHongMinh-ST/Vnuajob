@@ -17,6 +17,7 @@
         <!-- /.wrapper -->
       </main><!-- /.app-main -->
     </div><!-- /.app -->
-   @include('backend.includes.footer')
+   @yield('modals')
+   @include('backend.includes.footer')   
   </body>
 </html>
