@@ -13,7 +13,12 @@ class DashboardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function indexUser(Request $request)
+    {
+        return view('backend.dashboard');
+    }
+
+    public function indexEmployer(Request $request)
     {
         return view('backend.dashboard');
     }
