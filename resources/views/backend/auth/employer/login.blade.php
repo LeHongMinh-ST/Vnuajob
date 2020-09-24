@@ -68,7 +68,7 @@
         </div>
         </p><!-- .form-group -->
         <div class="form-group mb-4">
-          <label class="d-block text-left" for="inputUser">Email</label> <input type="text" id="inputUser" name='email' class="form-control form-control-lg" required="" autofocus="">
+          <label class="d-block text-left" for="inputUser">Email</label> <input type="email" id="inputUser" name='email' class="form-control form-control-lg" required="" autofocus="">
         </div><!-- /.form-group -->
         <!-- .form-group -->
         <div class="form-group mb-4">

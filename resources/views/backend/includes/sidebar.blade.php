@@ -101,16 +101,32 @@
                     <li class="menu-item has-active">
                       <a href="?mod=admin" class="menu-link"><span class="menu-icon fas fa-home"></span> <span class="menu-text">Bảng điều khiển</span></a>
                     </li><!-- /.menu-item -->
-                    <li class="menu-header">Việc làm</li>
-                    <!-- .menu-item -->
-                    <li class="menu-item">
-                      <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span class="menu-text">Quản lý bài viết</span> <span class="badge badge-warning">New</span></a> <!-- child menu -->
-                    </li><!-- /.menu-item -->
-                    <!-- .menu-item -->
-                    <li class="menu-item">
-                      <a href="#" class="menu-link"><span class="menu-icon oi oi-wrench"></span> <span class="menu-text">Quản lý danh mục việc làm</span></a> <!-- child menu -->
-                    </li><!-- /.menu-item -->
+                      @endauth
 
+                      @if(Auth::guard('employer')->check() || Auth::guard('user')->check())
+                          <li class="menu-header">Tuyển dụng</li>
+                          <!-- .menu-item -->
+                          <li class="menu-item">
+                              <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span class="menu-text">Đăng bài tuyển dụng</span> <span class="badge badge-warning">New</span></a> <!-- child menu -->
+                          </li><!-- /.menu-item -->
+                          <!-- .menu-item -->
+                          <li class="menu-item">
+                              <a href="#" class="menu-link"><span class="menu-icon oi oi-wrench"></span> <span class="menu-text">Các bài đã đăng</span></a> <!-- child menu -->
+                          </li><!-- /.menu-item -->
+                          <!-- .menu-item -->
+                      @endif
+                      @auth('user')
+                          <li class="menu-header">Quản lý tuyển dụng</li>
+                          <li class="menu-item">
+                              <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span class="menu-text">Quản lý bài viết</span> <span class="badge badge-warning">New</span></a> <!-- child menu -->
+                          </li><!-- /.menu-item -->
+                          <!-- .menu-item -->
+                          <li class="menu-item">
+                              <a href="#" class="menu-link"><span class="menu-icon oi oi-wrench"></span> <span class="menu-text">Quản lý danh mục việc làm</span></a> <!-- child menu -->
+                          </li><!-- /.menu-item -->
+                      @endauth
+
+                    @auth('user')
                     <li class="menu-header">Đơn vị</li>
 
                     <li class="menu-item ">
@@ -135,20 +151,10 @@
                     <li class="menu-item ">
                       <a href="#" class="menu-link"><span class="menu-icon oi oi-person"></span> <span class="menu-text">Quản lý người dùng</span></a> <!-- child menu -->
                     </li>
+                    @endauth
 
-                  @endauth
 
-                  @auth('employer')
-                          <li class="menu-header">Tuyển dụng</li>
-                          <!-- .menu-item -->
-                          <li class="menu-item">
-                              <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span class="menu-text">Đăng bài tuyển dụng</span> <span class="badge badge-warning">New</span></a> <!-- child menu -->
-                          </li><!-- /.menu-item -->
-                          <!-- .menu-item -->
-                          <li class="menu-item">
-                              <a href="#" class="menu-link"><span class="menu-icon oi oi-wrench"></span> <span class="menu-text">Quản lý bài tuyển dụng</span></a> <!-- child menu -->
-                          </li><!-- /.menu-item -->
-                  @endauth
+
                     <!-- .menu-item -->
                   </ul><!-- /.menu -->
                 </nav><!-- /.stacked-menu -->

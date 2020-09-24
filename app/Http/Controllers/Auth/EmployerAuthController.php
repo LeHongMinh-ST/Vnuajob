@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Company;
 use App\Models\Employer;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -13,6 +17,7 @@ use Illuminate\Support\Facades\Session;
 class EmployerAuthController extends Controller
 {
     use AuthenticatesUsers;
+
 
     protected $redirectTo = 'employers/';
 
@@ -25,6 +30,9 @@ class EmployerAuthController extends Controller
     {
         return view('backend.auth.employer.login');
     }
+
+
+
 
     public function login(Request $request)
     {
@@ -52,6 +60,8 @@ class EmployerAuthController extends Controller
             return redirect($this->redirectTo);
         }
     }
+
+
 
     public function logout(Request $request)
     {

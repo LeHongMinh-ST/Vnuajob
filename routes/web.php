@@ -35,6 +35,10 @@ Route::group(['prefix' => 'employers'], function () {
     Route::get('/login',[Auth\EmployerAuthController::class,'showLoginForm'])->name('employers.login');
     Route::post('/login',[Auth\EmployerAuthController::class,'login'])->name('employers.loginProcess');
     Route::get('/logout',[Auth\EmployerAuthController::class,'logout'])->name('employers.logout');
+    Route::get('/register',[Auth\EmployerRegisterController::class,'showRegistrationForm'])->name('employers.register');
+    Route::post('/register',[Auth\EmployerRegisterController::class,'register'])->name('employers.registerProcess');
+
+    Route::post('/companies/store',[Backend\CompanyController::class,'store'])->name('employers.company.store');
 
     Route::middleware('auth.employer')->group(function (){
         Route::get('/',[Backend\DashboardController::class,'indexEmployer'])->name('employers.dashboard');
