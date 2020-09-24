@@ -4,12 +4,11 @@ namespace Database\Seeders;
 
 use App\Models\Employer;
 use App\Models\Student;
-use App\Models\User_info;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Schema;
-use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-class UserTableSeeder extends Seeder
+use Illuminate\Support\Facades\Schema;
+
+class StudentTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,13 +17,13 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        if (Schema::hasTable('users')) {
-            User::truncate();
-            User::create([
-                'name'      => 'admin',
-                'email'     => 'admin@gmail.com',
+        if (Schema::hasTable('students')) {
+            Student::truncate();
+            Student::create([
+                'name'      => 'student',
+                'email'     => 'student@gmail.com',
                 'password'  => Hash::make(12345678),
-                'title'     =>'Quản trị viên',
+                'student_code'=>'637673',
                 'is_active' => 1
             ]);
 

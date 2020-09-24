@@ -81,32 +81,11 @@ class LoginController extends Controller
         }
     }
 
-    public function adminLogin(Request $request)
-    {
-        $this->validateLogin($request);
 
-        $user = User::where('email', $request->email)->first();
-
-        if($user==null || $user->role != 0)
-        {
-            Session::put('login_error', 'Tài khoản không tồn tại');
-            return back();
-        }
-
-        if($user->is_active != 1)
-        {
-            Session::put('login_error', 'Tài khoản đang bị khóa');
-            return back();
-        }
-
-        if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password'), 'deleted_at' => null])) {
-            return redirect($this->redirectTo);
-        }
-    }
 
     public function logout(Request $request)
     {
-        Auth::logout();
+        Auth::guard('user')->logout();
         return redirect('/');
     }
 }

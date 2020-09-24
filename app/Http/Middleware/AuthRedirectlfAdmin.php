@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminAuth
+class AuthRedirectlfAdmin
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,8 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::guard('user')->check()) {
-            return redirect('/admin/login');
+        if (Auth::guard('user')->check()) {
+            return redirect('/admin/');
         }
         return $next($request);
     }

@@ -16,19 +16,31 @@ use App\Http\Controllers\Auth;
 |
 */
 
-Route::get('/logout',[Auth\LoginController::class,'logout'])->name('logout');
-Route::get('/login',[Auth\LoginController::class,'showLoginForm'])->name('login');
-Route::post('/login',[Auth\LoginController::class,'Login'])->name('loginProcess');
+Route::get('/logout',[Auth\StudentAuthController::class,'logout'])->name('logout');
+Route::get('/login',[Auth\StudentAuthController::class,'showLoginForm'])->name('login');
+Route::post('/login',[Auth\StudentAuthController::class,'login'])->name('loginProcess');
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/login',[Auth\LoginController::class,'showAdminLoginForm'])->name('admin.login');
-    Route::post('/login',[Auth\LoginController::class,'adminLogin'])->name('admin.loginProcess');
+    Route::get('/login',[Auth\AdminAuthController::class,'showLoginForm'])->name('admin.login');
+    Route::post('/login',[Auth\AdminAuthController::class,'login'])->name('admin.loginProcess');
+    Route::get('/logout',[Auth\AdminAuthController::class,'logout'])->name('admin.logout');
 
     Route::middleware('auth.admin')->group(function (){
-        Route::get('/',Backend\DashboardController::class)->name('admin.dashboard');
+        Route::get('/',[Backend\DashboardController::class,'indexUser'])->name('admin.dashboard');
     });
 
 });
+
+Route::group(['prefix' => 'employers'], function () {
+    Route::get('/login',[Auth\EmployerAuthController::class,'showLoginForm'])->name('employers.login');
+    Route::post('/login',[Auth\EmployerAuthController::class,'login'])->name('employers.loginProcess');
+    Route::get('/logout',[Auth\EmployerAuthController::class,'logout'])->name('employers.logout');
+
+    Route::middleware('auth.employer')->group(function (){
+        Route::get('/',[Backend\DashboardController::class,'indexEmployer'])->name('employers.dashboard');
+    });
+});
+
 
 Route::get('/',[Frontend\HomeController::class, 'index'])->name('home');
 
