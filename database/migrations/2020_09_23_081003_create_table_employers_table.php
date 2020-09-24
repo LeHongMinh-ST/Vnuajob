@@ -20,7 +20,7 @@ class CreateTableEmployersTable extends Migration
             $table->string('title')->nullable()->comment('chức vụ');
             $table->date('birthday')->nullable()->comment('ngày sinh');
             $table->bigInteger('user_id')->comment('id bảng người dùng');
-            $table->bigInteger('company_id')->comment('id bảng công ty');
+            $table->bigInteger('company_id')->nullable()->comment('id bảng công ty');
             $table->timestamps();
             $table->softDeletes();
         });
