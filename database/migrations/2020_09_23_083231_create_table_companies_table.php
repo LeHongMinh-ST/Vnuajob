@@ -22,7 +22,7 @@ class CreateTableCompaniesTable extends Migration
             $table->string('website')->nullable()->comment('trang web công ty');
             $table->text('descriptions')->nullable()->comment('mô tả công ty');
             $table->string('logo')->nullable()->comment('ảnh logo');
-            $table->tinyInteger('is_active')->nullable()->comment('0:chưa kích hoạt - 1:Đã kích hoạt');
+            $table->tinyInteger('is_active')->default(1)->comment('0:chưa kích hoạt - 1:Đã kích hoạt');
             $table->timestamps();
             $table->softDeletes();
         });
