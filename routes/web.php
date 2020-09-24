@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Frontend;
+use App\Http\Controllers\Backend;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/admin', function () {
     return view('backend.dashboard');
 });
+
+Route::get('/',[Frontend\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
