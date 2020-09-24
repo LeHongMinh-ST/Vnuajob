@@ -19,8 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->comment('email người dùng');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->tinyInteger('role')->comment('0:người dùng - 1:nhà tuyển dụng - 2:sinh viên');
-            $table->tinyInteger('is_active')->comment('0:ngừng kích hoạt - 1:kích hoạt');
+            $table->tinyInteger('role')->default(1)->comment('0:người dùng - 1:nhà tuyển dụng - 2:sinh viên');
+            $table->tinyInteger('is_active')->default(1)->comment('0:ngừng kích hoạt - 1:kích hoạt');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
