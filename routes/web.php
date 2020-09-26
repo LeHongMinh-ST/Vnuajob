@@ -27,6 +27,26 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::middleware('auth.admin')->group(function (){
         Route::get('/',[Backend\DashboardController::class,'indexUser'])->name('admin.dashboard');
+
+        Route::group(['prefix'=>'users'],function(){
+            Route::get('/', [Backend\UserController::class,'index'])->name('admin.user.index');
+            Route::get('/get-data', [Backend\UserController::class,'getData'])->name('admin.user.get-data');
+            Route::post('/store', [Backend\UserController::class,'store'])->name('admin.user.store');
+            Route::put('/update/{id}', [Backend\UserController::class,'update'])->name('admin.user.update');
+            Route::delete('/delete/{id}', [Backend\UserController::class,'destroy'])->name('admin.user.destroy');
+            Route::put('/change-status/{id}',[Backend\UserController::class,'changeStatus'])->name('admin.user.change-status');
+            Route::get('/{id}/edit',[Backend\UserController::class,'edit'])->name('admin.user.edit');
+        });
+
+        Route::group(['prefix'=>'employers'],function(){
+            Route::get('/', [Backend\EmployerController::class,'index'])->name('admin.employer.index');
+            Route::get('/get-data', [Backend\EmployerController::class,'getData'])->name('admin.employer.get-data');
+            Route::post('/store', [Backend\EmployerController::class,'store'])->name('admin.employer.store');
+            Route::put('/update/{id}', [Backend\EmployerController::class,'update'])->name('admin.employer.update');
+            Route::delete('/delete/{id}', [Backend\EmployerController::class,'destroy'])->name('admin.employer.destroy');
+            Route::put('/change-status/{id}',[Backend\EmployerController::class,'changeStatus'])->name('admin.employer.change-status');
+            Route::get('/{id}/edit',[Backend\EmployerController::class,'edit'])->name('admin.employer.edit');
+        });
     });
 
 });
