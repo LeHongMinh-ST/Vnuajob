@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->comment('email người dùng');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
             $table->string('phone')->nullable()->comment('số điện thoại');
             $table->string('title')->nullable()->comment('chức vụ');
             $table->tinyInteger('is_active')->default(0)->comment('0:ngừng kích hoạt - 1:kích hoạt');
