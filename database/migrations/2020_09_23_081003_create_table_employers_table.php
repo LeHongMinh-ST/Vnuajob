@@ -17,10 +17,13 @@ class CreateTableEmployersTable extends Migration
             $table->id();
             $table->string('name')->nullable()->comment('tên người tuyển dụng');
             $table->string('phone')->nullable()->comment('số điện thoại');
+            $table->string('email')->unique()->comment('email người dùng');
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
             $table->string('title')->nullable()->comment('chức vụ');
             $table->date('birthday')->nullable()->comment('ngày sinh');
-            $table->bigInteger('user_id')->comment('id bảng người dùng');
-            $table->bigInteger('company_id')->comment('id bảng công ty');
+            $table->bigInteger('company_id')->nullable()->comment('id bảng công ty');
+            $table->tinyInteger('is_active')->default(0)->comment('0:ngừng kích hoạt - 1:kích hoạt');
             $table->timestamps();
             $table->softDeletes();
         });
