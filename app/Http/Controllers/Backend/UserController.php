@@ -112,7 +112,7 @@ class UserController extends Controller
         try {
 
             $user = User::findOrFail($id);
-            if($user->is_active == 1) $output['status'] = 0;
+            if($user->is_active == 1) $output['is_active'] = 0;
             else $output['is_active'] = 1;
 
             $success = $user->update($output);

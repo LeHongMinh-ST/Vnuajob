@@ -141,11 +141,11 @@
 
                     <!-- .menu-item -->
                     <li class="menu-item ">
-                      <a href="#" class="menu-link"><span class="menu-icon fas fa-id-badge"></span> <span class="menu-text">Quản lý nhà tuyển dụng</span></a> <!-- child menu -->
+                      <a href="{{route('admin.employer.index')}}" class="menu-link"><span class="menu-icon fas fa-id-badge"></span> <span class="menu-text">Quản lý nhà tuyển dụng</span></a> <!-- child menu -->
                     </li><!-- /.menu-item -->
 
                     <li class="menu-item ">
-                      <a href="#" class="menu-link"><span class="menu-icon fas fa-user-graduate"></span> <span class="menu-text">Quản lý sinh viên</span></a> <!-- child menu -->
+                      <a href="" class="menu-link"><span class="menu-icon fas fa-user-graduate"></span> <span class="menu-text">Quản lý sinh viên</span></a> <!-- child menu -->
                     </li><!-- /.menu-item -->
 
                     <li class="menu-item ">
