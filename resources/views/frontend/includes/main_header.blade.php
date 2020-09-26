@@ -18,6 +18,7 @@
                                         <li><a href="/">Trang chủ</a></li>
                                         <li><a href="/">Giới thiệu</a></li>
                                         <li><a href="#">Danh sách việc làm</a></li>
+                                        <li><a href="#">Công ty hàng đầu</a></li>
                                         <li><a href="#">Liên hệ</a></li>
                                     </ul>
                                 </nav>

@@ -32,23 +32,23 @@
         <div class="row cat_search">
             <div class="col-lg-3 col-md-4">
                 <div class="single_input">
-                    <input type="text" placeholder="Search keyword">
+                    <input type="text" placeholder="Từ khóa">
                 </div>
             </div>
             <div class="col-lg-3 col-md-4">
                 <div class="single_input">
                     <select class="wide" >
-                        <option data-display="Location">Location</option>
-                        <option value="1">Dhaka</option>
-                        <option value="2">Rangpur</option>
-                        <option value="4">Sylet</option>
+                        <option data-display="Địa điểm">Địa điêm</option>
+                        <option value="1">Hà Nội</option>
+                        <option value="2">Thành phố Hồ Chí Minh</option>
+                        <option value="3">Đà Nẵng</option>
                       </select>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4">
                 <div class="single_input">
                     <select class="wide">
-                        <option data-display="Category">Category</option>
+                        <option data-display="Danh mục">Danh mục</option>
                         <option value="1">Category 1</option>
                         <option value="2">Category 2</option>
                         <option value="4">Category 3</option>
@@ -57,14 +57,14 @@
             </div>
             <div class="col-lg-3 col-md-12">
                 <div class="job_btn">
-                    <a href="#" class="boxed-btn3">Find Job</a>
+                    <a href="#" class="boxed-btn3">Tìm kiếm công việc</a>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="popular_search d-flex align-items-center">
-                    <span>Popular Search:</span>
+                    <span>Từ khóa phổ biến:</span>
                     <ul>
                         <li><a href="#">Design & Creative</a></li>
                         <li><a href="#">Marketing</a></li>
@@ -87,7 +87,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section_title mb-40">
-                    <h3>Popolar Categories</h3>
+                    <h3>Danh mục phổ biến</h3>
                 </div>
             </div>
         </div>
@@ -95,49 +95,49 @@
             <div class="col-lg-4 col-xl-3 col-md-6">
                 <div class="single_catagory">
                     <a href="jobs.html"><h4>Design & Creative</h4></a>
-                    <p> <span>50</span> Available position</p>
+                    <p> <span>50</span> Vị trí có sẵn</p>
                 </div>
             </div>
             <div class="col-lg-4 col-xl-3 col-md-6">
                 <div class="single_catagory">
                     <a href="jobs.html"><h4>Marketing</h4></a>
-                    <p> <span>50</span> Available position</p>
+                    <p> <span>50</span> Vị trí có sẵn</p>
                 </div>
             </div>
             <div class="col-lg-4 col-xl-3 col-md-6">
                 <div class="single_catagory">
                     <a href="jobs.html"><h4>Telemarketing</h4></a>
-                    <p> <span>50</span> Available position</p>
+                    <p> <span>50</span> Vị trí có sẵn</p>
                 </div>
             </div>
             <div class="col-lg-4 col-xl-3 col-md-6">
                 <div class="single_catagory">
                     <a href="jobs.html"><h4>Software & Web</h4></a>
-                    <p> <span>50</span> Available position</p>
+                    <p> <span>50</span> Vị trí có sẵn</p>
                 </div>
             </div>
             <div class="col-lg-4 col-xl-3 col-md-6">
                 <div class="single_catagory">
                     <a href="jobs.html"><h4>Administration</h4></a>
-                    <p> <span>50</span> Available position</p>
+                    <p> <span>50</span> Vị trí có sẵn</p>
                 </div>
             </div>
             <div class="col-lg-4 col-xl-3 col-md-6">
                 <div class="single_catagory">
                     <a href="jobs.html"><h4>Teaching & Education</h4></a>
-                    <p> <span>50</span> Available position</p>
+                    <p> <span>50</span> Vị trí có sẵn</p>
                 </div>
             </div>
             <div class="col-lg-4 col-xl-3 col-md-6">
                 <div class="single_catagory">
                     <a href="jobs.html"><h4>Engineering</h4></a>
-                    <p> <span>50</span> Available position</p>
+                    <p> <span>50</span> Vị trí có sẵn</p>
                 </div>
             </div>
             <div class="col-lg-4 col-xl-3 col-md-6">
                 <div class="single_catagory">
                     <a href="jobs.html"><h4>Garments / Textile</h4></a>
-                    <p> <span>50</span> Available position</p>
+                    <p> <span>50</span> Vị trí có sẵn</p>
                 </div>
             </div>
         </div>
@@ -151,12 +151,12 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="section_title">
-                    <h3>Job Listing</h3>
+                    <h3>Danh sách công việc</h3>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="brouse_job text-right">
-                    <a href="jobs.html" class="boxed-btn4">Browse More Job</a>
+                    <a href="jobs.html" class="boxed-btn4">Xem thêm công việc</a>
                 </div>
             </div>
         </div>
@@ -183,7 +183,7 @@
                         <div class="jobs_right">
                             <div class="apply_now">
                                 <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
-                                <a href="job_details.html" class="boxed-btn3">Apply Now</a>
+                                <a href="job_details.html" class="boxed-btn3">Ứng tuyển</a>
                             </div>
                             <div class="date">
                                 <p>Date line: 31 Jan 2020</p>
@@ -201,7 +201,7 @@
                                 <a href="job_details.html"><h4>Digital Marketer</h4></a>
                                 <div class="links_locat d-flex align-items-center">
                                     <div class="location">
-                                        <p> <i class="fa fa-map-marker"></i> California, USA</p>
+                                        <p> <i class="fa fa-map-marker"></i>Hà Nội, VN</p>
                                     </div>
                                     <div class="location">
                                         <p> <i class="fa fa-clock-o"></i> Part-time</p>
@@ -212,7 +212,7 @@
                         <div class="jobs_right">
                             <div class="apply_now">
                                 <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
-                                <a href="job_details.html" class="boxed-btn3">Apply Now</a>
+                                <a href="job_details.html" class="boxed-btn3">Ứng tuyển</a>
                             </div>
                             <div class="date">
                                 <p>Date line: 31 Jan 2020</p>
@@ -230,7 +230,7 @@
                                 <a href="job_details.html"><h4>Wordpress Developer</h4></a>
                                 <div class="links_locat d-flex align-items-center">
                                     <div class="location">
-                                        <p> <i class="fa fa-map-marker"></i> California, USA</p>
+                                        <p> <i class="fa fa-map-marker"></i>Hà Nội, VN</p>
                                     </div>
                                     <div class="location">
                                         <p> <i class="fa fa-clock-o"></i> Part-time</p>
@@ -241,7 +241,7 @@
                         <div class="jobs_right">
                             <div class="apply_now">
                                 <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
-                                <a href="job_details.html" class="boxed-btn3">Apply Now</a>
+                                <a href="job_details.html" class="boxed-btn3">Ứng tuyển</a>
                             </div>
                             <div class="date">
                                 <p>Date line: 31 Jan 2020</p>
@@ -259,7 +259,7 @@
                                 <a href="job_details.html"><h4>Visual Designer</h4></a>
                                 <div class="links_locat d-flex align-items-center">
                                     <div class="location">
-                                        <p> <i class="fa fa-map-marker"></i> California, USA</p>
+                                        <p> <i class="fa fa-map-marker"></i>Hà Nội, VN</p>
                                     </div>
                                     <div class="location">
                                         <p> <i class="fa fa-clock-o"></i> Part-time</p>
@@ -270,7 +270,7 @@
                         <div class="jobs_right">
                             <div class="apply_now">
                                 <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
-                                <a href="job_details.html" class="boxed-btn3">Apply Now</a>
+                                <a href="job_details.html" class="boxed-btn3">Ứng tuyển</a>
                             </div>
                             <div class="date">
                                 <p>Date line: 31 Jan 2020</p>
@@ -288,7 +288,7 @@
                                 <a href="job_details.html"><h4>Software Engineer</h4></a>
                                 <div class="links_locat d-flex align-items-center">
                                     <div class="location">
-                                        <p> <i class="fa fa-map-marker"></i> California, USA</p>
+                                        <p> <i class="fa fa-map-marker"></i>Hà Nội, VN</p>
                                     </div>
                                     <div class="location">
                                         <p> <i class="fa fa-clock-o"></i> Part-time</p>
@@ -299,7 +299,7 @@
                         <div class="jobs_right">
                             <div class="apply_now">
                                 <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
-                                <a href="job_details.html" class="boxed-btn3">Apply Now</a>
+                                <a href="job_details.html" class="boxed-btn3">Ứng tuyển</a>
                             </div>
                             <div class="date">
                                 <p>Date line: 31 Jan 2020</p>
@@ -317,7 +317,7 @@
                                 <a href="job_details.html"><h4>Creative Designer</h4></a>
                                 <div class="links_locat d-flex align-items-center">
                                     <div class="location">
-                                        <p> <i class="fa fa-map-marker"></i> California, USA</p>
+                                        <p> <i class="fa fa-map-marker"></i>Hà Nội, VN</p>
                                     </div>
                                     <div class="location">
                                         <p> <i class="fa fa-clock-o"></i> Part-time</p>
@@ -328,7 +328,7 @@
                         <div class="jobs_right">
                             <div class="apply_now">
                                 <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
-                                <a href="job_details.html" class="boxed-btn3">Apply Now</a>
+                                <a href="job_details.html" class="boxed-btn3">Ứng tuyển</a>
                             </div>
                             <div class="date">
                                 <p>Date line: 31 Jan 2020</p>
@@ -342,128 +342,19 @@
 </div>
 <!-- job_listing_area_end  -->
 
-<!-- featured_candidates_area_start  -->
-<div class="featured_candidates_area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section_title text-center mb-40">
-                    <h3>Featured Candidates</h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="candidate_active owl-carousel">
-                    <div class="single_candidates text-center">
-                        <div class="thumb">
-                            <img src="{{asset('frontend')}}/img/candiateds/1.png" alt="">
-                        </div>
-                        <a href="#"><h4>Markary Jondon</h4></a>
-                        <p>Software Engineer</p>
-                    </div>
-                    <div class="single_candidates text-center">
-                        <div class="thumb">
-                            <img src="{{asset('frontend')}}/img/candiateds/2.png" alt="">
-                        </div>
-                        <a href="#"><h4>Markary Jondon</h4></a>
-                        <p>Software Engineer</p>
-                    </div>
-                    <div class="single_candidates text-center">
-                        <div class="thumb">
-                            <img src="{{asset('frontend')}}/img/candiateds/3.png" alt="">
-                        </div>
-                        <a href="#"><h4>Markary Jondon</h4></a>
-                        <p>Software Engineer</p>
-                    </div>
-                    <div class="single_candidates text-center">
-                        <div class="thumb">
-                            <img src="{{asset('frontend')}}/img/candiateds/4.png" alt="">
-                        </div>
-                        <a href="#"><h4>Markary Jondon</h4></a>
-                        <p>Software Engineer</p>
-                    </div>
-                    <div class="single_candidates text-center">
-                        <div class="thumb">
-                            <img src="{{asset('frontend')}}/img/candiateds/5.png" alt="">
-                        </div>
-                        <a href="#"><h4>Markary Jondon</h4></a>
-                        <p>Software Engineer</p>
-                    </div>
-                    <div class="single_candidates text-center">
-                        <div class="thumb">
-                            <img src="{{asset('frontend')}}/img/candiateds/6.png" alt="">
-                        </div>
-                        <a href="#"><h4>Markary Jondon</h4></a>
-                        <p>Software Engineer</p>
-                    </div>
-                    <div class="single_candidates text-center">
-                        <div class="thumb">
-                            <img src="{{asset('frontend')}}/img/candiateds/7.png" alt="">
-                        </div>
-                        <a href="#"><h4>Markary Jondon</h4></a>
-                        <p>Software Engineer</p>
-                    </div>
-                    <div class="single_candidates text-center">
-                        <div class="thumb">
-                            <img src="{{asset('frontend')}}/img/candiateds/8.png" alt="">
-                        </div>
-                        <a href="#"><h4>Markary Jondon</h4></a>
-                        <p>Software Engineer</p>
-                    </div>
-                    <div class="single_candidates text-center">
-                        <div class="thumb">
-                            <img src="{{asset('frontend')}}/img/candiateds/9.png" alt="">
-                        </div>
-                        <a href="#"><h4>Markary Jondon</h4></a>
-                        <p>Software Engineer</p>
-                    </div>
-                    <div class="single_candidates text-center">
-                        <div class="thumb">
-                            <img src="{{asset('frontend')}}/img/candiateds/9.png" alt="">
-                        </div>
-                        <a href="#"><h4>Markary Jondon</h4></a>
-                        <p>Software Engineer</p>
-                    </div>
-                    <div class="single_candidates text-center">
-                        <div class="thumb">
-                            <img src="{{asset('frontend')}}/img/candiateds/10.png" alt="">
-                        </div>
-                        <a href="#"><h4>Markary Jondon</h4></a>
-                        <p>Software Engineer</p>
-                    </div>
-                    <div class="single_candidates text-center">
-                        <div class="thumb">
-                            <img src="{{asset('frontend')}}/img/candiateds/3.png" alt="">
-                        </div>
-                        <a href="#"><h4>Markary Jondon</h4></a>
-                        <p>Software Engineer</p>
-                    </div>
-                    <div class="single_candidates text-center">
-                        <div class="thumb">
-                            <img src="{{asset('frontend')}}/img/candiateds/4.png" alt="">
-                        </div>
-                        <a href="#"><h4>Markary Jondon</h4></a>
-                        <p>Software Engineer</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- featured_candidates_area_end  -->
+
 
 <div class="top_companies_area">
     <div class="container">
         <div class="row align-items-center mb-40">
             <div class="col-lg-6 col-md-6">
                 <div class="section_title">
-                    <h3>Top Companies</h3>
+                    <h3>Công ty hàng đầu</h3>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="brouse_job text-right">
-                    <a href="jobs.html" class="boxed-btn4">Browse More Job</a>
+                    <a href="jobs.html" class="boxed-btn4">Xem thêm công việc</a>
                 </div>
             </div>
         </div>
@@ -474,7 +365,7 @@
                         <img src="{{asset('frontend')}}/img/svg_icon/5.svg" alt="">
                     </div>
                     <a href="jobs.html"><h3>Snack Studio</h3></a>
-                    <p> <span>50</span> Available position</p>
+                    <p> <span>50</span> Vị trí có sẵn</p>
                 </div>
             </div>
             <div class="col-lg-4 col-xl-3 col-md-6">
@@ -483,7 +374,7 @@
                         <img src="{{asset('frontend')}}/img/svg_icon/4.svg" alt="">
                     </div>
                     <a href="jobs.html"><h3>Snack Studio</h3></a>
-                    <p> <span>50</span> Available position</p>
+                    <p> <span>50</span> Vị trí có sẵn</p>
                 </div>
             </div>
             <div class="col-lg-4 col-xl-3 col-md-6">
@@ -492,7 +383,7 @@
                         <img src="{{asset('frontend')}}/img/svg_icon/3.svg" alt="">
                     </div>
                     <a href="jobs.html"><h3>Snack Studio</h3></a>
-                    <p> <span>50</span> Available position</p>
+                    <p> <span>50</span> Vị trí có sẵn</p>
                 </div>
             </div>
             <div class="col-lg-4 col-xl-3 col-md-6">
@@ -501,7 +392,7 @@
                         <img src="{{asset('frontend')}}/img/svg_icon/1.svg" alt="">
                     </div>
                     <a href="jobs.html"><h3>Snack Studio</h3></a>
-                    <p> <span>50</span> Available position</p>
+                    <p> <span>50</span> Vị trí có sẵn</p>
                 </div>
             </div>
         </div>
@@ -514,16 +405,14 @@
         <div class="row">
             <div class="col-lg-5 offset-lg-1 col-md-6">
                 <div class="searching_text">
-                    <h3>Looking for a Job?</h3>
-                    <p>We provide online instant cash loans with quick approval </p>
-                    <a href="#" class="boxed-btn3">Browse Job</a>
+                    <h3>Bạn là sinh viện ?</h3>
+                    <a href="#" class="boxed-btn3">Xem thêm dang sách công việc</a>
                 </div>
             </div>
             <div class="col-lg-5 offset-lg-1 col-md-6">
                 <div class="searching_text">
-                    <h3>Looking for a Expert?</h3>
-                    <p>We provide online instant cash loans with quick approval </p>
-                    <a href="#" class="boxed-btn3">Post a Job</a>
+                    <h3>Bạn là người tuyển dụng?</h3>
+                    <a href="#" class="boxed-btn3">Tuyển dụng</a>
                 </div>
             </div>
         </div>
