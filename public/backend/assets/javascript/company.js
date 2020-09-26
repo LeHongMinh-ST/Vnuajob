@@ -94,9 +94,9 @@ jQuery( document ).ready(function( $ ) {
             address:{
                 required:'Vui lòng nhập địa chỉ công ty',
             },
-            file:{
-                required:'Vui lòng chọn logo công ty',
-            }
+            // file:{
+            //     required:'Vui lòng chọn logo công ty',
+            // }
         },
     })
     $('#formEditCompany').validate({
@@ -118,9 +118,9 @@ jQuery( document ).ready(function( $ ) {
             address:{
                 required:true,
             },
-            file:{
-                required:true,
-            }
+            // file:{
+            //     required:true,
+            // }
 
         },
         messages:{
@@ -141,9 +141,9 @@ jQuery( document ).ready(function( $ ) {
             address:{
                 required:'Vui lòng nhập địa chỉ công ty',
             },
-            file:{
-                required:'Vui lòng chọn logo công ty',
-            }
+            // file:{
+            //     required:'Vui lòng chọn logo công ty',
+            // }
         },
     })
 
@@ -205,11 +205,13 @@ jQuery( document ).ready(function( $ ) {
     })
     $('#btnSubmitEditCompany').click(function () {
         let id = $(this).attr('data-id');
+        console.log(1)
         if(!$('#formEditCompany').valid()) return false;
+        console.log(2)
         let formData = new FormData($('#formEditCompany')[0]);
         $.ajax({
             type:'post',
-            url: '/employers/company/update/' + id,
+            url: 'company/update/' + id,
             processData: false,
             contentType: false,
             headers: {
@@ -218,10 +220,12 @@ jQuery( document ).ready(function( $ ) {
             data: formData,
             success: function (res) {
                 if (!res.error) {
+                    console.log(3)
                     $('#listCompany').DataTable().ajax.reload();
                     $('#editCompanyModal').modal('hide');
                     toastr.success(res.message);
                 }else{
+                    console.log(4)
                     toastr.error(res.message);
                 }
             }

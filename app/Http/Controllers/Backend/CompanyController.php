@@ -142,7 +142,6 @@ class CompanyController extends Controller
     public function update(Request $request, $id)
     {
         $input  = $request->all();
-
         try {
 
             $validate= Validator::make($request->all(),[
@@ -150,7 +149,7 @@ class CompanyController extends Controller
                 'email'     => 'required|email|max:100',
                 'website'   => 'required|max:100',
                 'address'   => 'required|max:100',
-                'file'      => 'required|max:10000|mimes:jpg,png,jpeg'
+//                'file'      => 'required|max:10000|mimes:jpg,png,jpeg'
             ]);
 
             if(!$validate) return false;
