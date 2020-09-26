@@ -47,6 +47,16 @@ Route::group(['prefix' => 'admin'], function () {
             Route::put('/change-status/{id}',[Backend\EmployerController::class,'changeStatus'])->name('admin.employer.change-status');
             Route::get('/{id}/edit',[Backend\EmployerController::class,'edit'])->name('admin.employer.edit');
         });
+
+        Route::group(['prefix'=>'students'],function(){
+            Route::get('/', [Backend\StudentController::class,'index'])->name('admin.student.index');
+            Route::get('/get-data', [Backend\StudentController::class,'getData'])->name('admin.student.get-data');
+            Route::post('/store', [Backend\StudentController::class,'store'])->name('admin.student.store');
+            Route::put('/update/{id}', [Backend\StudentController::class,'update'])->name('admin.student.update');
+            Route::delete('/delete/{id}', [Backend\StudentController::class,'destroy'])->name('admin.student.destroy');
+            Route::put('/change-status/{id}',[Backend\StudentController::class,'changeStatus'])->name('admin.student.change-status');
+            Route::get('/{id}/edit',[Backend\StudentController::class,'edit'])->name('admin.student.edit');
+        });
     });
 
 });
