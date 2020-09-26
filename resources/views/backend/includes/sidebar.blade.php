@@ -116,11 +116,11 @@
                       @auth('user')
                           <li class="menu-header">Quản lý tuyển dụng</li>
                           <li class="menu-item">
-                              <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span class="menu-text">Quản lý bài viết</span> <span class="badge badge-warning">New</span></a> <!-- child menu -->
+                              <a href="{{route('post.index')}}" class="menu-link"><span class="menu-icon far fa-file"></span> <span class="menu-text">Quản lý bài viết</span> <span class="badge badge-warning">New</span></a> <!-- child menu -->
                           </li><!-- /.menu-item -->
                           <!-- .menu-item -->
                           <li class="menu-item">
-                              <a href="#" class="menu-link"><span class="menu-icon oi oi-wrench"></span> <span class="menu-text">Quản lý danh mục việc làm</span></a> <!-- child menu -->
+                              <a href="{{route('category.index')}}" class="menu-link"><span class="menu-icon oi oi-wrench"></span> <span class="menu-text">Quản lý danh mục việc làm</span></a> <!-- child menu -->
                           </li><!-- /.menu-item -->
                       @endauth
 
