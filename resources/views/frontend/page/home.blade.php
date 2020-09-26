@@ -9,11 +9,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-7 col-md-6">
                     <div class="slider_text">
-                        <h5 class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">4536+ Jobs listed</h5>
-                        <h3 class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s">Find your Dream Job</h3>
-                        <p class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".4s">We provide online instant cash loans with quick approval that suit your term length</p>
+                        <h5 class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">4536+ Cơ hội việc làm</h5>
+                        <h3 class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s">Tìm kiếm công việc mơ ước</h3>
+                        <p class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".4s">Chúng tôi cung cấp các công việc phù hợp với khả năng và thời gian của bạn</p>
                         <div class="sldier_btn wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">
-                            <a href="#" class="boxed-btn3">Upload your Resume</a>
+                            <a href="#" class="boxed-btn3">Tải lên hồ sơ của bạn</a>
                         </div>
                     </div>
                 </div>
