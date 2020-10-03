@@ -85,7 +85,7 @@ Route::group([
         Route::get('show/{id}',  [Backend\CategoryController::class, 'show'])->name('show');
         Route::get('create',  [Backend\CategoryController::class, 'create'])->name('create');
         Route::post('/store',  [Backend\CategoryController::class, 'store'])->name('store');
-        Route::put('update/{id}',  [Backend\CategoryController::class, 'update'])->name('update');
+        Route::post('update/{id}',  [Backend\CategoryController::class, 'update'])->name('update');
         Route::delete('destroy/{id}',  [Backend\CategoryController::class, 'destroy'])->name('destroy');
         Route::get('{id}/edit',  [Backend\CategoryController::class, 'edit'])->name('edit');
         Route::post('/check-subject-id-unique',  [Backend\CategoryController::class, 'checkSubjectIdUnique']);
