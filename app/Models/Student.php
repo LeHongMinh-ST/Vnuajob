@@ -4,16 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Student extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
 
     protected $guard = 'student';
 
     protected $fillable = [
-        'name', 'email', 'password','is_active'
+        'name', 'email', 'password','phone','is_active','student_code','home_town','class','facuty_id','status','is_active'
     ];
 
     /**

@@ -6,8 +6,8 @@
                 <div class="col-xl-3 col-md-6 col-lg-3">
                     <div class="footer_widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
                         <div class="footer_logo">
-                            <a href="#">
-                                <img src="{{asset('frontend')}}/img/logo.png" alt="">
+                            <a href="/">
+                                <img src="{{asset('frontend')}}/img/logo_vcms.png" alt="" style="width: 40%">
                             </a>
                         </div>
                         <p>
