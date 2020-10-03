@@ -55,7 +55,7 @@
                                             <th>Email</th>
                                             <th>Số điện thoại</th>
                                             <th>Trạng thái</th>
-                                            <th>Hành đống</th>
+                                            <th>Hành động</th>
                                         </tr>
                                         </thead>
                                         <tfoot>

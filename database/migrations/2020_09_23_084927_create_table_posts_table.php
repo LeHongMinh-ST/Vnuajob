@@ -23,7 +23,6 @@ class CreateTablePostsTable extends Migration
             $table->string('salary')->comment('tiền lương');
             $table->string('location')->comment('địa chỉ làm việc');
             $table->string('job_nature')->comment('tính chất công việc');
-            $table->bigInteger('user_id')->comment('id bảng user');
             $table->bigInteger('category_id')->comment('id bảng category');
             $table->bigInteger('company_id')->comment('id bảng company');
             $table->tinyInteger('status')->comment('0:chưa đủ số lượng tuyển dụng - 1:đã đủ số lượng tuyển dụng');

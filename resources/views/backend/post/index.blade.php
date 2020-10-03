@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 @section('scripts')
-    <script src="{{asset('backend/custom/student.js')}}"></script>
+    <script src="{{asset('backend/custom/post.js')}}"></script>
 @endsection
 @section('css')
     <style>
@@ -36,7 +36,7 @@
                     <div class="card card-fluid">
                         <div class="card-header">
                             <div>
-                                <button class="btn btn-success" id="btnAddStudent">Thêm mới</button>
+                                <button class="btn btn-success" id="btnAddPost">Thêm mới</button>
                             </div>
                         </div>
                         <!-- .card-body -->
@@ -44,19 +44,20 @@
                             <!-- .table -->
                             <div id="dt-responsive_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                 <div class="table-responsive">
-                                    <table id="studentTable"
+                                    <table id="postTable"
                                            class="table dt-responsive nowrap w-100 dataTable dtr-inline" role="grid"
                                            aria-describedby="dt-responsive_info">
                                         <thead>
                                         <tr role="row">
                                             <th>STT</th>
-                                            <th>Họ và tên</th>
-                                            <th>Mã sinh viên</th>
-                                            <th>Email</th>
-                                            <th>Số điện thoại</th>
-                                            <th>Quê quán</th>
-                                            <th>Lớp</th>
-                                            <th>Khoa</th>
+                                            <th>Tiêu đề</th>
+                                            <th>Ngày tuyển dụng</th>
+                                            <th>Loại hình công việc</th>
+                                            <th>Số lượng</th>
+                                            <th>Mức lương</th>
+                                            <th>Người đăng</th>
+                                            <th>Công ty</th>
+                                            <th>Trang thái tuyển dụng</th>
                                             <th>Trạng thái việc làm</th>
                                             <th>Trạng thái</th>
                                             <th>Hành động</th>
@@ -81,8 +82,8 @@
 @endsection
 
 @section('modals')
-    <div class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="addPostModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Thêm mới</h5>
@@ -91,63 +92,83 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="formAddStudent">
+                    <form id="formAddPost">
                         <!-- .fieldset -->
                         <fieldset>
                             <div class="form-group">
-                                <label for="email">Email</label> <input type="email" class="form-control" id="email" name="email" aria-describedby="tf1Help" placeholder="Nhập vào email">
+                                <label for="title">title</label> <input type="text" class="form-control" id="title" name="title" aria-describedby="tf1Help" placeholder="Nhập vào email">
                             </div><!-- /.form-group -->
                             <!-- .form-group -->
                             <div class="form-group">
-                                <label for="name">Họ và tên</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Nhập vào họ tên">
+                                <label for="descriptions">Mô tả</label>
+                                <textarea name="descriptions" id="descriptions" rows="5" placeholder="Nhập vào mô tả"></textarea>
                             </div><!-- /.form-group -->
 
                             <div class="form-group">
-                                <label for="student_code">Mã sinh viên</label>
-                                <input type="text" class="form-control" id="student_code" name="student_code" placeholder="Nhập vào mã sinh viên">
+                                <label for="content">Nội dung</label>
+                                <textarea name="content" id="content" cols="30" rows="10" placeholder="Nhập vào mô tả"></textarea>
                             </div><!-- /.form-group -->
 
-                            <div class="form-group">
-                                <label for="phone">Số điện thoại</label>
-                                <input type="text" class="form-control" id="phone" name="phone"  placeholder="Nhập vào số điện thoại">
-                            </div><!-- /.form-group -->
+                            <div class="row">
+                                <div class="form-group col-4">
+                                    <label for="date_public">Ngày tuyển dụng</label>
+                                    <input type="text" class="form-control" id="date_public" name="date_public"  placeholder="Nhập vào ngày tuyển dụng">
+                                </div><!-- /.form-group -->
 
-                            <div class="form-group">
-                                <label for="home_town">Quê quán</label>
-                                <input type="text" class="form-control" id="home_town" name="home_town"  placeholder="Nhập vào quên quán">
-                            </div><!-- /.form-group -->
+                                <div class="form-group col-4">
+                                    <label for="vacancy">Số lượng tuyển dụng</label>
+                                    <input type="number" class="form-control" id="vacancy" name="vacancy"  placeholder="Nhập vào số lượng tuyển dụng">
+                                </div><!-- /.form-group -->
 
-                            <div class="form-group">
-                                <label for="class">Lớp</label>
-                                <input type="text" class="form-control" id="class" name="class"  placeholder="Nhập vào lớp">
-                            </div><!-- /.form-group -->
-
-
-                            <div class="form-group">
-                                <label for="facuty_id">Chọn khoa</label>
-                                <select name="facuty_id" id="facuty_id" class="form-control">
-                                    <option value=""></option>
-                                    @forelse($faculties as $faculty)
-                                        <option value="{{$faculty->id}}">{{$faculty->name}}</option>
-                                    @empty
-
-                                    @endforelse
-                                </select>
+                                <div class="form-group col-4">
+                                    <label for="salary">Mức lương</label>
+                                    <input type="text" class="form-control" id="salary" name="salary"  placeholder="Nhập vào số lượng tuyển dụng">
+                                </div><!-- /.form-group -->
                             </div>
+
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label for="location">Địa chỉ nơi làm việc</label>
+                                    <input type="text" class="form-control" id="location" name="location"  placeholder="Nhập vào lớp">
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group col-6">
+                                    <label for="job_nature">Loại hình công việc</label>
+                                    <select name="job_nature" id="job_nature" class="form-control">
+                                        <option value=""></option>
+                                        <option value="1">Full time</option>
+                                        <option value="1">Part time</option>
+
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group col-6">
+                                    <label for="company_id">Chọn công ty</label>
+                                    <select name="company_id" id="company_id" class="form-control">
+                                        <option value=""></option>
+                                        @forelse($companies as $company)
+                                            <option value="{{$company->id}}">{{$company->name}}</option>
+                                        @empty
+
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
+
 
                         </fieldset><!-- /.fieldset -->
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-primary" id="btnSubmitFormStudent">Tạo mới</button>
+                    <button type="button" class="btn btn-primary" id="btnSubmitFormPost">Tạo mới</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="editStudentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="editPostModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -157,7 +178,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="formEditStudent">
+                    <form id="formEditPost">
                         <!-- .fieldset -->
                         <fieldset>
                             <div class="form-group">
@@ -190,11 +211,11 @@
                             </div><!-- /.form-group -->
 
                             <div class="form-group">
-                                <label for="edit_facuty_id">Chọn công ti</label>
-                                <select name="facuty_id" id="edit_facuty_id" class="form-control">
+                                <label for="edit_company_id">Chọn công ti</label>
+                                <select name="company_id" id="edit_company_id" class="form-control">
                                     <option value=""></option>
-                                    @forelse($faculties as $faculty)
-                                        <option value="{{$faculty->id}}">{{$faculty->name}}</option>
+                                    @forelse($companies as $company)
+                                        <option value="{{$company->id}}">{{$company->name}}</option>
                                     @empty
 
                                     @endforelse
@@ -207,7 +228,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-primary" id="btnEditFormStudent">Lưu</button>
+                    <button type="button" class="btn btn-primary" id="btnEditFormPost">Lưu</button>
                 </div>
             </div>
         </div>

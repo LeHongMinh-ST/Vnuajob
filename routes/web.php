@@ -57,6 +57,70 @@ Route::group(['prefix' => 'admin'], function () {
             Route::put('/change-status/{id}',[Backend\StudentController::class,'changeStatus'])->name('admin.student.change-status');
             Route::get('/{id}/edit',[Backend\StudentController::class,'edit'])->name('admin.student.edit');
         });
+
+        Route::group([
+            'prefix' => 'category',
+            'as' => 'category.'
+        ], function () {
+            Route::get('/', [Backend\CategoryController::class, 'index'])->name('index');
+            Route::get('/getData',  [Backend\CategoryController::class, 'getData'])->name('getData');
+            Route::get('show/{id}',  [Backend\CategoryController::class, 'show'])->name('show');
+            Route::get('create',  [Backend\CategoryController::class, 'create'])->name('create');
+            Route::post('/store',  [Backend\CategoryController::class, 'store'])->name('store');
+            Route::put('update/{id}',  [Backend\CategoryController::class, 'update'])->name('update');
+            Route::delete('destroy/{id}',  [Backend\CategoryController::class, 'destroy'])->name('destroy');
+            Route::get('{id}/edit',  [Backend\CategoryController::class, 'edit'])->name('edit');
+            Route::post('/check-subject-id-unique',  [Backend\CategoryController::class, 'checkSubjectIdUnique']);
+            Route::post('/check-subject-id-unique-update',  [Backend\CategoryController::class, 'checkSubjectIdUniqueUpdate']);
+        });
+
+        Route::group([
+            'prefix' => 'facuty',
+            'as' => 'facuty.'
+        ], function () {
+            Route::get('/', [Backend\FacutyController::class, 'index'])->name('index');
+            Route::get('/getData',  [Backend\FacutyController::class, 'getData'])->name('getData');
+            Route::get('show/{id}',  [Backend\FacutyController::class, 'show'])->name('show');
+            Route::get('create',  [Backend\FacutyController::class, 'create'])->name('create');
+            Route::post('/store',  [Backend\FacutyController::class, 'store'])->name('store');
+            Route::put('update/{id}',  [Backend\FacutyController::class, 'update'])->name('update');
+            Route::delete('destroy/{id}',  [Backend\FacutyController::class, 'destroy'])->name('destroy');
+            Route::get('{id}/edit',  [Backend\FacutyController::class, 'edit'])->name('edit');
+            Route::post('/check-subject-id-unique',  [Backend\FacutyController::class, 'checkSubjectIdUnique']);
+            Route::post('/check-subject-id-unique-update',  [Backend\FacutyController::class, 'checkSubjectIdUniqueUpdate']);
+        });
+
+        Route::group([
+            'prefix' => 'company',
+            'as' => 'company.'
+        ], function () {
+            Route::get('/', [Backend\CompanyController::class, 'index'])->name('index');
+            Route::get('/getData',  [Backend\CompanyController::class, 'getData'])->name('getData');
+            Route::get('show/{id}',  [Backend\CompanyController::class, 'show'])->name('show');
+            Route::get('create',  [Backend\CompanyController::class, 'create'])->name('create');
+            Route::post('/store',  [Backend\CompanyController::class, 'store'])->name('store');
+            Route::post('update/{id}',  [Backend\CompanyController::class, 'update'])->name('update');
+            Route::delete('destroy/{id}',  [Backend\CompanyController::class, 'destroy'])->name('destroy');
+            Route::get('{id}/edit',  [Backend\CompanyController::class, 'edit'])->name('edit');
+            Route::post('/check-subject-id-unique',  [Backend\CompanyController::class, 'checkSubjectIdUnique']);
+            Route::post('/check-subject-id-unique-update',  [Backend\CompanyController::class, 'checkSubjectIdUniqueUpdate']);
+        });
+
+        Route::group([
+            'prefix' => 'post',
+            'as' => 'post.'
+        ], function () {
+            Route::get('/', [Backend\PostController::class, 'index'])->name('index');
+            Route::get('/get-data',  [Backend\PostController::class, 'getData'])->name('get-data');
+            Route::get('show/{id}',  [Backend\PostController::class, 'show'])->name('show');
+            Route::get('create',  [Backend\PostController::class, 'create'])->name('create');
+            Route::post('/store',  [Backend\PostController::class, 'store'])->name('store');
+            Route::post('update/{id}',  [Backend\PostController::class, 'update'])->name('update');
+            Route::delete('destroy/{id}',  [Backend\PostController::class, 'destroy'])->name('destroy');
+            Route::get('{id}/edit',  [Backend\PostController::class, 'edit'])->name('edit');
+            Route::post('/check-subject-id-unique',  [Backend\PostController::class, 'checkSubjectIdUnique']);
+            Route::post('/check-subject-id-unique-update',  [Backend\PostController::class, 'checkSubjectIdUniqueUpdate']);
+        });
     });
 
 });
@@ -81,73 +145,4 @@ Route::get('/',[Frontend\HomeController::class, 'index'])->name('home');
 // Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::group([
-    'prefix' => 'admin',
-], function () {
-
-    Route::group([
-        'prefix' => 'category',
-        'as' => 'category.'
-    ], function () {
-        Route::get('/', [Backend\CategoryController::class, 'index'])->name('index');
-        Route::get('/getData',  [Backend\CategoryController::class, 'getData'])->name('getData');
-        Route::get('show/{id}',  [Backend\CategoryController::class, 'show'])->name('show');
-        Route::get('create',  [Backend\CategoryController::class, 'create'])->name('create');
-        Route::post('/store',  [Backend\CategoryController::class, 'store'])->name('store');
-        Route::put('update/{id}',  [Backend\CategoryController::class, 'update'])->name('update');
-        Route::delete('destroy/{id}',  [Backend\CategoryController::class, 'destroy'])->name('destroy');
-        Route::get('{id}/edit',  [Backend\CategoryController::class, 'edit'])->name('edit');
-        Route::post('/check-subject-id-unique',  [Backend\CategoryController::class, 'checkSubjectIdUnique']);
-        Route::post('/check-subject-id-unique-update',  [Backend\CategoryController::class, 'checkSubjectIdUniqueUpdate']);
-    });
-
-    Route::group([
-        'prefix' => 'facuty',
-        'as' => 'facuty.'
-    ], function () {
-        Route::get('/', [Backend\FacutyController::class, 'index'])->name('index');
-        Route::get('/getData',  [Backend\FacutyController::class, 'getData'])->name('getData');
-        Route::get('show/{id}',  [Backend\FacutyController::class, 'show'])->name('show');
-        Route::get('create',  [Backend\FacutyController::class, 'create'])->name('create');
-        Route::post('/store',  [Backend\FacutyController::class, 'store'])->name('store');
-        Route::put('update/{id}',  [Backend\FacutyController::class, 'update'])->name('update');
-        Route::delete('destroy/{id}',  [Backend\FacutyController::class, 'destroy'])->name('destroy');
-        Route::get('{id}/edit',  [Backend\FacutyController::class, 'edit'])->name('edit');
-        Route::post('/check-subject-id-unique',  [Backend\FacutyController::class, 'checkSubjectIdUnique']);
-        Route::post('/check-subject-id-unique-update',  [Backend\FacutyController::class, 'checkSubjectIdUniqueUpdate']);
-    });
-
-    Route::group([
-        'prefix' => 'company',
-        'as' => 'company.'
-    ], function () {
-        Route::get('/', [Backend\CompanyController::class, 'index'])->name('index');
-        Route::get('/getData',  [Backend\CompanyController::class, 'getData'])->name('getData');
-        Route::get('show/{id}',  [Backend\CompanyController::class, 'show'])->name('show');
-        Route::get('create',  [Backend\CompanyController::class, 'create'])->name('create');
-        Route::post('/store',  [Backend\CompanyController::class, 'store'])->name('store');
-        Route::post('update/{id}',  [Backend\CompanyController::class, 'update'])->name('update');
-        Route::delete('destroy/{id}',  [Backend\CompanyController::class, 'destroy'])->name('destroy');
-        Route::get('{id}/edit',  [Backend\CompanyController::class, 'edit'])->name('edit');
-        Route::post('/check-subject-id-unique',  [Backend\CompanyController::class, 'checkSubjectIdUnique']);
-        Route::post('/check-subject-id-unique-update',  [Backend\CompanyController::class, 'checkSubjectIdUniqueUpdate']);
-    });
-
-    Route::group([
-        'prefix' => 'post',
-        'as' => 'post.'
-    ], function () {
-        Route::get('/', [Backend\PostController::class, 'index'])->name('index');
-        Route::get('/getData',  [Backend\PostController::class, 'getData'])->name('getData');
-        Route::get('show/{id}',  [Backend\PostController::class, 'show'])->name('show');
-        Route::get('create',  [Backend\PostController::class, 'create'])->name('create');
-        Route::post('/store',  [Backend\PostController::class, 'store'])->name('store');
-        Route::post('update/{id}',  [Backend\PostController::class, 'update'])->name('update');
-        Route::delete('destroy/{id}',  [Backend\PostController::class, 'destroy'])->name('destroy');
-        Route::get('{id}/edit',  [Backend\PostController::class, 'edit'])->name('edit');
-        Route::post('/check-subject-id-unique',  [Backend\PostController::class, 'checkSubjectIdUnique']);
-        Route::post('/check-subject-id-unique-update',  [Backend\PostController::class, 'checkSubjectIdUniqueUpdate']);
-    });
-});
 
