@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Company;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $list_category = Category::all();
+        $companies = Company::all();
+        return view('backend.post.index')->with([
+            'list_category'=>$list_category,
+            'companies'=>$companies
+        ]);
     }
 
     /**
@@ -25,7 +32,12 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $list_category = Category::all();
+        $companies = Company::all();
+        return view('backend.post.create')->with([
+            'list_category'=>$list_category,
+            'companies'=>$companies
+        ]);
     }
 
     /**
@@ -82,5 +94,11 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+    public function getAddress($id){
+        $company= Company::where('id',$id)->first();
+        return response()->json([
+            'address'=>$company->address
+        ]);
     }
 }

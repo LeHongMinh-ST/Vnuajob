@@ -148,6 +148,7 @@ Route::group([
         Route::get('{id}/edit',  [Backend\PostController::class, 'edit'])->name('edit');
         Route::post('/check-subject-id-unique',  [Backend\PostController::class, 'checkSubjectIdUnique']);
         Route::post('/check-subject-id-unique-update',  [Backend\PostController::class, 'checkSubjectIdUniqueUpdate']);
+        Route::post('/get-address/{id}',  [Backend\PostController::class, 'getAddress']);
     });
 });
 

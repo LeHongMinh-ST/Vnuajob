@@ -105,7 +105,7 @@
                           <li class="menu-header">Tuyển dụng</li>
                           <!-- .menu-item -->
                           <li class="menu-item">
-                              <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span class="menu-text">Đăng bài tuyển dụng</span> <span class="badge badge-warning">New</span></a> <!-- child menu -->
+                              <a href="{{route('post.create')}}" class="menu-link"><span class="menu-icon far fa-file"></span> <span class="menu-text">Đăng bài tuyển dụng</span> <span class="badge badge-warning">New</span></a> <!-- child menu -->
                           </li><!-- /.menu-item -->
                           <!-- .menu-item -->
                           <li class="menu-item">
