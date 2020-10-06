@@ -184,23 +184,7 @@
                                     </div>
                                 </div><!-- /.form-group -->
                             </div>
-                            <div class="row">
-                                <div class="form-group col-6">
-                                    <label for="position">Chức vụ</label>
-                                    <input type="text" class="form-control" id="position" name="position"  placeholder="Nhập vào chức vụ">
-                                </div><!-- /.form-group -->
 
-                                <div class="form-group col-3">
-                                    <label for="date_public">Ngày bắt đầu</label>
-                                    <input type="text" class="form-control" name="date_public" id="date_public" placeholder="Chọn ngày bắt đầu">
-                                </div><!-- /.form-group -->
-
-                                <div class="form-group col-3">
-                                    <label for="deadline">Hạn nộp hồ sơ</label>
-                                    <input type="text" class="form-control" name="deadline" id="deadline" placeholder="Chọn hạn nộp hồ sơ">
-                                </div><!-- /.form-group -->
-
-                            </div>
 
 
                             <div class="row">
@@ -216,9 +200,14 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group col-7">
+                                <div class="form-group col-4">
                                     <label for="location">Địa chỉ nơi làm việc</label>
                                     <input type="text" class="form-control" id="location" name="location"  placeholder="Nhập vào địa chỉ cụ thể">
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group col-3">
+                                    <label for="position">Chức vụ</label>
+                                    <input type="text" class="form-control" id="position" name="position"  placeholder="Nhập vào chức vụ">
                                 </div><!-- /.form-group -->
 
                             </div>
@@ -236,11 +225,7 @@
 
                                 <div class="form-group col-3">
                                     <label for="request_old">Độ tuổi</label>
-                                    <select name="request_old" id="request_old" class="form-control">
-                                        <option value=""></option>
-                                        <option value="1">Có</option>
-                                        <option value="0">Không</option>
-                                    </select>
+                                    <input type="text" name="request_old" id="request_old" class="form-control"  placeholder="Nhập vào độ tuổi">
                                 </div>
 
                                 <div class="form-group col-3">
@@ -256,8 +241,9 @@
                                     <label for="request_sex">Giới tính</label>
                                     <select name="request_sex" id="request_sex" class="form-control">
                                         <option value=""></option>
-                                        <option value="1">Có</option>
-                                        <option value="0">Không</option>
+                                        <option value="0">Không yêu cầu</option>
+                                        <option value="1">Nam</option>
+                                        <option value="2">Nữ</option>
                                     </select>
                                 </div>
 
@@ -367,24 +353,6 @@
                                     </div>
                                 </div><!-- /.form-group -->
                             </div>
-                            <div class="row">
-                                <div class="form-group col-6">
-                                    <label for="edit_position">Chức vụ</label>
-                                    <input type="text" class="form-control" id="edit_position" name="position"  placeholder="Nhập vào chức vụ">
-                                </div><!-- /.form-group -->
-
-                                <div class="form-group col-3">
-                                    <label for="edit_date_public">Ngày bắt đầu</label>
-                                    <input type="text" class="form-control" name="date_public" id="edit_date_public" placeholder="Chọn ngày bắt đầu">
-                                </div><!-- /.form-group -->
-
-                                <div class="form-group col-3">
-                                    <label for="edit_deadline">Hạn nộp hồ sơ</label>
-                                    <input type="text" class="form-control" name="deadline" id="dedit_eadline" placeholder="Chọn hạn nộp hồ sơ">
-                                </div><!-- /.form-group -->
-
-                            </div>
-
 
                             <div class="row">
                                 <div class="form-group col-5">
@@ -399,9 +367,14 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group col-7">
+                                <div class="form-group col-4">
                                     <label for="edit_location">Địa chỉ nơi làm việc</label>
                                     <input type="text" class="form-control" id="edit_location" name="location"  placeholder="Nhập vào địa chỉ cụ thể">
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group col-3">
+                                    <label for="edit_position">Chức vụ</label>
+                                    <input type="text" class="form-control" id="edit_position" name="position"  placeholder="Nhập vào chức vụ">
                                 </div><!-- /.form-group -->
 
                             </div>
@@ -419,11 +392,7 @@
 
                                 <div class="form-group col-3">
                                     <label for="edit_request_old">Độ tuổi</label>
-                                    <select name="request_old" id="edit_request_old" class="form-control">
-                                        <option value=""></option>
-                                        <option value="1">Có</option>
-                                        <option value="0">Không</option>
-                                    </select>
+                                    <input type="text" name="request_old" id="edit_request_old" class="form-control">
                                 </div>
 
                                 <div class="form-group col-3">
@@ -439,9 +408,9 @@
                                     <label for="edit_request_sex">Giới tính</label>
                                     <select name="request_sex" id="edit_request_sex" class="form-control">
                                         <option value=""></option>
+                                        <option value="0">Không yêu cầu</option>
                                         <option value="1">Name</option>
                                         <option value="2">Nữ</option>
-                                        <option value="0">Giới tính khác</option>
                                     </select>
                                 </div>
 

@@ -111,7 +111,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        dd($input);
+
         try {
 //            $validate = Validator::make($request->all(),[
 //
