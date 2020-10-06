@@ -1,16 +1,25 @@
 @extends('backend.layouts.master')
 @section('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     <script src="{{asset('backend/custom/post.js')}}"></script>
 @endsection
 @section('css')
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
         .error{
             color: red;
         }
         .day{
             border: 0.5px solid #e0d8d8;
+        }
+
+        .select2-selection__rendered {
+            line-height: 32px !important;
+        }
+
+        .select2-selection {
+            height: 34px !important;
         }
     </style>
 @endsection
@@ -60,10 +69,8 @@
                                             <th>Loại hình công việc</th>
                                             <th>Số lượng</th>
                                             <th>Mức lương</th>
-                                            <th>Người đăng</th>
                                             <th>Công ty</th>
                                             <th>Trang thái tuyển dụng</th>
-                                            <th>Trạng thái việc làm</th>
                                             <th>Trạng thái</th>
                                             <th>Hành động</th>
                                         </tr>
@@ -101,8 +108,20 @@
                         <!-- .fieldset -->
                         <fieldset>
                             <div class="form-group">
-                                <label for="title">title</label> <input type="text" class="form-control" id="title" name="title" aria-describedby="tf1Help" placeholder="Nhập vào email">
+                                <label for="title">Tiêu đề</label> <input type="text" class="form-control" id="title" name="title" aria-describedby="tf1Help" placeholder="Nhập vào tiêu đề">
                             </div><!-- /.form-group -->
+
+                            <div class="form-group">
+                                <label for="category_id">Danh mục</label>
+                                <select name="category_id" id="category_id" class="form-control">
+                                    <option value=""></option>
+                                    @forelse($list_category as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @empty
+
+                                    @endforelse
+                                </select>
+                            </div>
                             <!-- .form-group -->
                             <div class="form-group">
                                 <label for="descriptions">Mô tả</label>
@@ -115,40 +134,77 @@
                             </div><!-- /.form-group -->
 
                             <div class="row">
-                                <div class="form-group col-4">
+                                <div class="form-group col-3">
                                     <label for="date_public">Ngày tuyển dụng</label>
                                     <input type="text" class="form-control" id="date_public" name="date_public"  placeholder="Nhập vào ngày tuyển dụng">
                                 </div><!-- /.form-group -->
 
-                                <div class="form-group col-4">
+                                <div class="form-group col-3">
+                                    <label for="deadline">Hạn nộp hồ sơ</label>
+                                    <input type="text" class="form-control" id="deadline" name="deadline"  placeholder="Nhập vào hạn nộp hồ sơ">
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group col-3">
                                     <label for="vacancy">Số lượng tuyển dụng</label>
                                     <input type="number" class="form-control" id="vacancy" name="vacancy"  placeholder="Nhập vào số lượng tuyển dụng">
                                 </div><!-- /.form-group -->
 
-                                <div class="form-group col-4">
-                                    <label for="salary">Mức lương</label>
-                                    <input type="text" class="form-control" id="salary" name="salary"  placeholder="Nhập vào số lượng tuyển dụng">
-                                </div><!-- /.form-group -->
-                            </div>
-
-                            <div class="row">
-                                <div class="form-group col-6">
-                                    <label for="location">Địa chỉ nơi làm việc</label>
-                                    <input type="text" class="form-control" id="location" name="location"  placeholder="Nhập vào lớp">
-                                </div><!-- /.form-group -->
-
-                                <div class="form-group col-6">
+                                <div class="form-group col-3">
                                     <label for="job_nature">Loại hình công việc</label>
                                     <select name="job_nature" id="job_nature" class="form-control">
                                         <option value=""></option>
-                                        <option value="1">Full time</option>
+                                        <option value="3">Linh động</option>
+                                        <option value="2">Full time</option>
                                         <option value="1">Part time</option>
-
                                     </select>
                                 </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="form-group col-4">
+                                    <label for="salary">Mức lương</label>
+                                    <input type="text" class="form-control" id="salary" name="salary"  placeholder="Nhập vào mức lương (vd: 10-15 triệu)">
+                                </div><!-- /.form-group -->
 
 
+                                <div class="form-group col-4">
+                                    <div class="row">
+                                        <label for="salart_start">Mức lương tối thiểu</label>
+                                        <input type="text" class="form-control col-10" id="salart_start" name="salart_start"  placeholder="Mức lương tối thiểu bằng số (vd: 10.000.000)" onChange="format_curency(this);">
+                                        <span class="col-2" style="padding-top: 10px;">VNĐ</span>
+                                    </div>
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group col-4">
+                                    <div class="row">
+                                        <label for="salart_end">Mức lương tối đa</label>
+                                        <input type="text" class="form-control col-10" id="salart_end" name="salart_end"  placeholder="Mức lương tối đa bằng số (vd: 10.000.000)" onChange="format_curency(this);">
+                                        <span class="col-2" style="padding-top: 10px;">VNĐ</span>
+                                    </div>
+                                </div><!-- /.form-group -->
+                            </div>
+                            <div class="row">
                                 <div class="form-group col-6">
+                                    <label for="position">Chức vụ</label>
+                                    <input type="text" class="form-control" id="position" name="position"  placeholder="Nhập vào chức vụ">
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group col-3">
+                                    <label for="date_public">Ngày bắt đầu</label>
+                                    <input type="text" class="form-control" name="date_public" id="date_public" placeholder="Chọn ngày bắt đầu">
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group col-3">
+                                    <label for="deadline">Hạn nộp hồ sơ</label>
+                                    <input type="text" class="form-control" name="deadline" id="deadline" placeholder="Chọn hạn nộp hồ sơ">
+                                </div><!-- /.form-group -->
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="form-group col-5">
                                     <label for="company_id">Chọn công ty</label>
                                     <select name="company_id" id="company_id" class="form-control">
                                         <option value=""></option>
@@ -159,7 +215,55 @@
                                         @endforelse
                                     </select>
                                 </div>
+
+                                <div class="form-group col-7">
+                                    <label for="location">Địa chỉ nơi làm việc</label>
+                                    <input type="text" class="form-control" id="location" name="location"  placeholder="Nhập vào địa chỉ cụ thể">
+                                </div><!-- /.form-group -->
+
                             </div>
+                            <h5>Yêu cầu:</h5>
+                            <div class="row">
+
+                                <div class="form-group col-3">
+                                    <label for="request_degree">Bằng cấp</label>
+                                    <select name="request_degree" id="request_degree" class="form-control">
+                                        <option value=""></option>
+                                        <option value="1">Có</option>
+                                        <option value="0">Không</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-3">
+                                    <label for="request_old">Độ tuổi</label>
+                                    <select name="request_old" id="request_old" class="form-control">
+                                        <option value=""></option>
+                                        <option value="1">Có</option>
+                                        <option value="0">Không</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-3">
+                                    <label for="request_experience">Kinh nghiệm</label>
+                                    <select name="request_experience" id="request_experience" class="form-control">
+                                        <option value=""></option>
+                                        <option value="1">Có</option>
+                                        <option value="0">Không</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-3">
+                                    <label for="request_sex">Giới tính</label>
+                                    <select name="request_sex" id="request_sex" class="form-control">
+                                        <option value=""></option>
+                                        <option value="1">Có</option>
+                                        <option value="0">Không</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+
 
 
                         </fieldset><!-- /.fieldset -->
@@ -174,7 +278,7 @@
     </div>
 
     <div class="modal fade" id="editPostModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Cập nhật</h5>
@@ -187,45 +291,163 @@
                         <!-- .fieldset -->
                         <fieldset>
                             <div class="form-group">
-                                <label for="edit_email">Email</label> <input type="email" class="form-control" id="edit_email" name="email" aria-describedby="tf1Help" placeholder="Nhập vào email">
-                            </div><!-- /.form-group -->
-                            <!-- .form-group -->
-                            <div class="form-group">
-                                <label for="edit_name">Họ và tên</label>
-                                <input type="text" class="form-control" id="edit_name" name="name" placeholder="Nhập vào họ tên">
+                                <label for="edit_title">Tiêu đề</label> <input type="text" class="form-control" id="edit_title" name="title" aria-describedby="tf1Help" placeholder="Nhập vào tiêu đề">
                             </div><!-- /.form-group -->
 
                             <div class="form-group">
-                                <label for="edit_student_code">Mã sinh viên</label>
-                                <input type="text" class="form-control" id="edit_student_code" name="student_code" placeholder="Nhập vào chức vụ">
-                            </div><!-- /.form-group -->
-
-                            <div class="form-group">
-                                <label for="edit_phone">Số điện thoại</label>
-                                <input type="text" class="form-control" id="edit_phone" name="phone"  placeholder="Nhập vào số điện thoại">
-                            </div><!-- /.form-group -->
-
-                            <div class="form-group">
-                                <label for="edit_home_town">Quê quán</label>
-                                <input type="text" class="form-control" id="edit_home_town" name="home_town"  placeholder="Nhập vào số điện thoại">
-                            </div><!-- /.form-group -->
-
-                            <div class="form-group">
-                                <label for="edit_class">Lớp</label>
-                                <input type="text" class="form-control" id="edit_class" name="class"  placeholder="Nhập vào số điện thoại">
-                            </div><!-- /.form-group -->
-
-                            <div class="form-group">
-                                <label for="edit_company_id">Chọn công ti</label>
-                                <select name="company_id" id="edit_company_id" class="form-control">
+                                <label for="cedit_ategory_id">Danh mục</label>
+                                <select name="category_id" id="edit_category_id" class="form-control">
                                     <option value=""></option>
-                                    @forelse($companies as $company)
-                                        <option value="{{$company->id}}">{{$company->name}}</option>
+                                    @forelse($list_category as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
                                     @empty
 
                                     @endforelse
                                 </select>
                             </div>
+                            <!-- .form-group -->
+                            <div class="form-group">
+                                <label for="edit_descriptions">Mô tả</label>
+                                <textarea name="descriptions" id="edit_descriptions" rows="5" placeholder="Nhập vào mô tả"></textarea>
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group">
+                                <label for="edit_content">Nội dung</label>
+                                <textarea name="content" id="edit_content" cols="30" rows="10" placeholder="Nhập vào mô tả"></textarea>
+                            </div><!-- /.form-group -->
+
+                            <div class="row">
+                                <div class="form-group col-3">
+                                    <label for="edit_date_public">Ngày tuyển dụng</label>
+                                    <input type="text" class="form-control" id="edit_date_public" name="date_public"  placeholder="Nhập vào ngày tuyển dụng">
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group col-3">
+                                    <label for="edit_deadline">Hạn nộp hồ sơ</label>
+                                    <input type="text" class="form-control" id="edit_deadline" name="deadline"  placeholder="Nhập vào hạn nộp hồ sơ">
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group col-3">
+                                    <label for="edit_vacancy">Số lượng tuyển dụng</label>
+                                    <input type="number" class="form-control" id="edit_vacancy" name="vacancy"  placeholder="Nhập vào số lượng tuyển dụng">
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group col-3">
+                                    <label for="edit_job_nature">Loại hình công việc</label>
+                                    <select name="job_nature" id="edit_job_nature" class="form-control">
+                                        <option value=""></option>
+                                        <option value="3">Linh động</option>
+                                        <option value="2">Full time</option>
+                                        <option value="1">Part time</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="form-group col-4">
+                                    <label for="edit_salary">Mức lương</label>
+                                    <input type="text" class="form-control" id="edit_salary" name="salary"  placeholder="Nhập vào mức lương (vd: 10-15 triệu)">
+                                </div><!-- /.form-group -->
+
+
+                                <div class="form-group col-4">
+                                    <div class="row">
+                                        <label for="edit_salart_start">Mức lương tối thiểu</label>
+                                        <input type="text" class="form-control col-10" id="edit_salart_start" name="salart_start"  placeholder="Mức lương tối thiểu bằng số (vd: 10.000.000)" onChange="format_curency(this);">
+                                        <span class="col-2" style="padding-top: 10px;">VNĐ</span>
+                                    </div>
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group col-4">
+                                    <div class="row">
+                                        <label for="edit_salart_end">Mức lương tối đa</label>
+                                        <input type="text" class="form-control col-10" id="edit_salart_end" name="salart_end"  placeholder="Mức lương tối đa bằng số (vd: 10.000.000)" onChange="format_curency(this);">
+                                        <span class="col-2" style="padding-top: 10px;">VNĐ</span>
+                                    </div>
+                                </div><!-- /.form-group -->
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label for="edit_position">Chức vụ</label>
+                                    <input type="text" class="form-control" id="edit_position" name="position"  placeholder="Nhập vào chức vụ">
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group col-3">
+                                    <label for="edit_date_public">Ngày bắt đầu</label>
+                                    <input type="text" class="form-control" name="date_public" id="edit_date_public" placeholder="Chọn ngày bắt đầu">
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group col-3">
+                                    <label for="edit_deadline">Hạn nộp hồ sơ</label>
+                                    <input type="text" class="form-control" name="deadline" id="dedit_eadline" placeholder="Chọn hạn nộp hồ sơ">
+                                </div><!-- /.form-group -->
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="form-group col-5">
+                                    <label for="edit_company_id">Chọn công ty</label>
+                                    <select name="company_id" id="edit_company_id" class="form-control">
+                                        <option value=""></option>
+                                        @forelse($companies as $company)
+                                            <option value="{{$company->id}}">{{$company->name}}</option>
+                                        @empty
+
+                                        @endforelse
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-7">
+                                    <label for="edit_location">Địa chỉ nơi làm việc</label>
+                                    <input type="text" class="form-control" id="edit_location" name="location"  placeholder="Nhập vào địa chỉ cụ thể">
+                                </div><!-- /.form-group -->
+
+                            </div>
+                            <h5>Yêu cầu:</h5>
+                            <div class="row">
+
+                                <div class="form-group col-3">
+                                    <label for="edit_request_degree">Bằng cấp</label>
+                                    <select name="request_degree" id="edit_request_degree" class="form-control">
+                                        <option value=""></option>
+                                        <option value="1">Có</option>
+                                        <option value="0">Không</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-3">
+                                    <label for="edit_request_old">Độ tuổi</label>
+                                    <select name="request_old" id="edit_request_old" class="form-control">
+                                        <option value=""></option>
+                                        <option value="1">Có</option>
+                                        <option value="0">Không</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-3">
+                                    <label for="edit_request_experience">Kinh nghiệm</label>
+                                    <select name="request_experience" id="edit_request_experience" class="form-control">
+                                        <option value=""></option>
+                                        <option value="1">Có</option>
+                                        <option value="0">Không</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-3">
+                                    <label for="edit_request_sex">Giới tính</label>
+                                    <select name="request_sex" id="edit_request_sex" class="form-control">
+                                        <option value=""></option>
+                                        <option value="1">Name</option>
+                                        <option value="2">Nữ</option>
+                                        <option value="0">Giới tính khác</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+
 
 
                         </fieldset><!-- /.fieldset -->

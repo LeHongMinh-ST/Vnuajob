@@ -53,8 +53,20 @@
                                 <!-- .fieldset -->
                                 <fieldset>
                                     <div class="form-group">
-                                        <label for="title">title</label> <input type="text" class="form-control" id="title" name="title" aria-describedby="tf1Help" placeholder="Nhập vào email">
+                                        <label for="title">Tiêu đề</label> <input type="text" class="form-control" id="title" name="title" aria-describedby="tf1Help" placeholder="Nhập vào tiêu đề">
                                     </div><!-- /.form-group -->
+
+                                    <div class="form-group">
+                                        <label for="category_id">Danh mục</label>
+                                        <select name="category_id" id="category_id" class="form-control">
+                                            <option value=""></option>
+                                            @forelse($list_category as $category)
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                            @empty
+
+                                            @endforelse
+                                        </select>
+                                    </div>
                                     <!-- .form-group -->
                                     <div class="form-group">
                                         <label for="descriptions">Mô tả</label>
@@ -117,19 +129,31 @@
                                             </div>
                                         </div><!-- /.form-group -->
                                     </div>
+                                    <div class="row">
+                                        <div class="form-group col-6">
+                                            <label for="position">Chức vụ</label>
+                                            <input type="text" class="form-control" id="position" name="position"  placeholder="Nhập vào chức vụ">
+                                        </div><!-- /.form-group -->
+
+                                        <div class="form-group col-6">
+                                            <label for="position">Hạn nộp hồ sơ</label>
+                                            <input type="text" class="form-control" name="deadline" id="deadline" placeholder="Chọn hạn nộp hồ sơ">
+                                        </div><!-- /.form-group -->
+
+                                    </div>
 
 
                                     <div class="row">
                                         <div class="form-group col-5">
-                                                <label for="company_id">Chọn công ty</label>
-                                                <select name="company_id" id="company_id" class="form-control">
-                                                    <option value=""></option>
-                                                    @forelse($companies as $company)
-                                                        <option value="{{$company->id}}">{{$company->name}}</option>
-                                                    @empty
+                                            <label for="company_id">Chọn công ty</label>
+                                            <select name="company_id" id="company_id" class="form-control">
+                                                <option value=""></option>
+                                                @forelse($companies as $company)
+                                                    <option value="{{$company->id}}">{{$company->name}}</option>
+                                                @empty
 
-                                                    @endforelse
-                                                </select>
+                                                @endforelse
+                                            </select>
                                         </div>
 
                                         <div class="form-group col-7">
@@ -137,12 +161,50 @@
                                             <input type="text" class="form-control" id="location" name="location"  placeholder="Nhập vào địa chỉ cụ thể">
                                         </div><!-- /.form-group -->
 
+                                    </div>
+                                    <h5>Yêu cầu:</h5>
+                                    <div class="row">
 
+                                        <div class="form-group col-3">
+                                            <label for="request_degree">Bằng cấp</label>
+                                            <select name="request_degree" id="request_degree" class="form-control">
+                                                <option value=""></option>
+                                                <option value="1">Có</option>
+                                                <option value="0">Không</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-3">
+                                            <label for="request_old">Độ tuổi</label>
+                                            <select name="request_old" id="request_old" class="form-control">
+                                                <option value=""></option>
+                                                <option value="1">Có</option>
+                                                <option value="0">Không</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-3">
+                                            <label for="request_experience">Kinh nghiệm</label>
+                                            <select name="request_experience" id="request_experience" class="form-control">
+                                                <option value=""></option>
+                                                <option value="1">Có</option>
+                                                <option value="0">Không</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-3">
+                                            <label for="request_sex">Giới tính</label>
+                                            <select name="request_sex" id="request_sex" class="form-control">
+                                                <option value=""></option>
+                                                <option value="1">Có</option>
+                                                <option value="0">Không</option>
+                                            </select>
+                                        </div>
 
                                     </div>
 
-
                                 </fieldset><!-- /.fieldset -->
+                                <button type="button" class="btn btn-primary" id="btnSubmitFormPost">Tạo mới</button>
                             </form>
                         </div><!-- /.card-body -->
                     </div><!-- /.card -->
