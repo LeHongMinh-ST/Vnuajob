@@ -65,7 +65,7 @@ class FacutyController extends Controller
         $facuty=Facuty::create($data);
         DB::commit();
         return response()->json([
-            'error'=>true,
+            'error'=>false,
             'message'=>'Thêm mới thành công một khoa'
         ]);
     }

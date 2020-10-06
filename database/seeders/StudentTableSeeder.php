@@ -24,7 +24,8 @@ class StudentTableSeeder extends Seeder
                 'email'     => 'student@gmail.com',
                 'password'  => Hash::make(12345678),
                 'student_code'=>'637673',
-                'is_active' => 1
+                'is_active' => 1,
+                'facuty_id' =>1,
             ]);
 
         }

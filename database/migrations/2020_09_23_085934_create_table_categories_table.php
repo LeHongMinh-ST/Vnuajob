@@ -17,7 +17,7 @@ class CreateTableCategoriesTable extends Migration
             $table->id();
             $table->string('name')->comment('tên danh mục');
             $table->string('descriptions')->comment('mô ta');
-            $table->bigInteger('parent_id')->comment('id danh mục cha');
+            $table->bigInteger('parent_id')->nullable()->comment('id danh mục cha');
             $table->tinyInteger('is_active')->comment('mô ta');
             $table->timestamps();
             $table->softDeletes();

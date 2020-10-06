@@ -24,7 +24,8 @@ class EmployerTableSeeder extends Seeder
                 'email'     => 'employer@gmail.com',
                 'password'  => Hash::make(12345678),
                 'title'     =>'Tuyển dụng',
-                'is_active' => 1
+                'is_active' => 1,
+                'company_id'=>1,
             ]);
 
         }
