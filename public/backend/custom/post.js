@@ -119,8 +119,107 @@ var postTable = $('#postTable').DataTable({
         {data: 'action', name: 'action', orderable: false, searchable: false},
     ]
 });
+var postTableEmployer = $('#postTableEmployer').DataTable({
+    processing: true,
+    serverSide: true,
+    searching: true,
+    destroy: true,
+    responsive: true,
+    ajax: {
+        url: '/employers/post/get-data',
+    },
+
+    language: {
+        sProcessing: "Đang xử lý...",
+        sLengthMenu: "Xem _MENU_ mục",
+        sZeroRecords: "Không tìm thấy dòng nào phù hợp",
+        sInfo: "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+        sInfoEmpty: "Đang xem 0 đến 0 trong tổng số 0 mục",
+        sInfoFiltered: "(được lọc từ _MAX_ mục)",
+        sSearch: 'Tìm kiếm',
+        lengthMenu: '_MENU_ bản ghi/trang',
+        oPaginate: {
+            "sFirst": "Đầu",
+            "sPrevious": "Trước",
+            "sNext": "Tiếp",
+            "sLast": "Cuối"
+        }
+    },
+    columns: [
+        {data: 'DT_RowIndex', searchable: false, orderable: false,},
+        {data: 'title', name: 'post.title' , orderable: false,},
+        {data: 'date_public', name: 'post.date_public',orderable: false,},
+        {data: 'job_nature', name: 'post.job_nature', orderable: false,},
+        {data: 'vacancy', name: 'post.vacancy',orderable: false,},
+        {data: 'salary', name: 'post.salary', orderable: false,},
+        {data: 'company_id', name: 'post.company_id',orderable: false,},
+        {data: 'status', name: 'post.status', orderable: false,},
+        {data: 'is_active', name: 'is_active', orderable: false, searchable: false},
+        {data: 'action', name: 'action', orderable: false, searchable: false},
+    ]
+});
 
 $('#formAddPost').validate({
+    rules: {
+        "title" : {
+            required:true ,
+        },
+        "category_id" : {
+            required:true ,
+        },
+        "descriptions" : {
+            required:true ,
+        },
+        "content" : {
+            required:true ,
+        },
+        "date_public" : {
+            required:true ,
+        },
+        "deadline" : {
+            required:true ,
+        },
+        "vacancy" : {
+            required:true ,
+        },
+        "job_nature" : {
+            required:true ,
+        },
+        "salary" : {
+            required:true ,
+        },
+        "salart_start" : {
+            required:true ,
+        },
+        "salart_end" : {
+            required:true ,
+        },
+        "position" : {
+            required:true ,
+        },
+        "company_id" : {
+            required:true ,
+        },
+        "location" : {
+            required:true ,
+        },
+        "request_degree" : {
+            required:true ,
+        },
+        "request_old" : {
+            required:true ,
+        },
+        "request_experience" : {
+            required:true ,
+        },
+        "request_sex" : {
+            required:true ,
+        },
+    }
+
+})
+
+$('#formAddPostEmployer').validate({
     rules: {
         "title" : {
             required:true ,
@@ -264,6 +363,7 @@ $('#btnSubmitFormPost').click(function (e){
             if(!res.error){
 
                 postTable.ajax.reload();
+                postTableEmployer.ajax.reload();
                 $('#addPostModal').modal('hide');
                 toastr.success(res.message);
             }else{
@@ -286,6 +386,7 @@ $('#btnEditFormPost').click(function (e){
         success: function (res){
             if(!res.error){
                 postTable.ajax.reload();
+                postTableEmployer.ajax.reload();
                 $('#editPostModal').modal('hide');
                 toastr.success(res.message);
             }else{
@@ -363,6 +464,7 @@ $('#postTable').on('click','.btn-delete',function(e){
                 success:function(res){
                     if(!res.error){
                         postTable.ajax.reload();
+                        postTableEmployer.ajax.reload();
                         toastr.success(res.message)
                     }else{
                         toastr.error(res.message)
@@ -388,5 +490,34 @@ $('#postTable').on('change','.switcher-input',function(){
             }
         }
     });
+})
+
+$('#formAddPostEmployer').submit(function (e){
+    e.preventDefault();
+    if(!$('#formAddPostEmployer').valid()) return  false;
+
+    let data = $('#formAddPostEmployer').serialize();
+
+    $.ajax({
+        type:'put',
+        url:'/admin/post/update/'+id,
+        data:data,
+        success: function (res){
+            if(!res.error){
+                toastr.success(
+                    res.message,
+                    {
+                        timeOut: 1000,
+                        fadeOut: 1000,
+                        onHidden: function () {
+                            window.location.replace("/employer/post");
+                        }
+                    }
+                )
+            }else{
+                toastr.error(res.message);
+            }
+        }
+    })
 })
 

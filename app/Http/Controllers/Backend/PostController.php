@@ -29,6 +29,25 @@ class PostController extends Controller
         ]);
     }
 
+    public function indexEmployer()
+    {
+        $list_category = Category::all();
+        $companies = Company::all();
+        return view('backend.post.employer')->with([
+            'list_category'=>$list_category,
+            'companies'=>$companies
+        ]);
+    }
+
+    public function getDataEmployer()
+    {
+        $posts = Post::where([
+            'user_id'       =>Auth::guard('employer')->user()->id,
+            'user_table'    =>1,
+        ]);
+        return $this->createDataTable($posts);
+    }
+
     public function getData()
     {
         $posts = Post::all();

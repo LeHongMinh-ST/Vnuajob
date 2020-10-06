@@ -138,6 +138,24 @@ Route::group(['prefix' => 'employers'], function () {
 
     Route::middleware('auth.employer')->group(function (){
         Route::get('/',[Backend\DashboardController::class,'indexEmployer'])->name('employers.dashboard');
+
+        Route::group([
+            'prefix' => 'post',
+            'as' => 'employer.post.'
+        ], function () {
+            Route::get('/', [Backend\PostController::class, 'indexEmployer'])->name('index');
+            Route::get('/get-data',  [Backend\PostController::class, 'getDataEmployer'])->name('getData');
+            Route::get('show/{id}',  [Backend\PostController::class, 'show'])->name('show');
+            Route::get('create',  [Backend\PostController::class, 'create'])->name('create');
+            Route::post('/store',  [Backend\PostController::class, 'store'])->name('store');
+            Route::put('update/{id}',  [Backend\PostController::class, 'update'])->name('update');
+            Route::delete('delete/{id}',  [Backend\PostController::class, 'destroy'])->name('destroy');
+            Route::get('{id}/edit',  [Backend\PostController::class, 'edit'])->name('edit');
+            Route::post('/check-subject-id-unique',  [Backend\PostController::class, 'checkSubjectIdUnique']);
+            Route::post('/check-subject-id-unique-update',  [Backend\PostController::class, 'checkSubjectIdUniqueUpdate']);
+            Route::post('/get-address/{id}',  [Backend\PostController::class, 'getAddress']);
+            Route::put('/change-status/{id}',[Backend\PostController::class,'changeStatus'])->name('admin.user.change-status');
+        });
     });
 });
 

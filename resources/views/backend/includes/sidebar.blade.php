@@ -101,15 +101,15 @@
                     </li><!-- /.menu-item -->
                       @endauth
 
-                      @if(Auth::guard('employer')->check() || Auth::guard('user')->check())
+                      @if(Auth::guard('employer')->check())
                           <li class="menu-header">Tuyển dụng</li>
                           <!-- .menu-item -->
                           <li class="menu-item">
-                              <a href="{{route('post.create')}}" class="menu-link"><span class="menu-icon far fa-file"></span> <span class="menu-text">Đăng bài tuyển dụng</span> <span class="badge badge-warning">New</span></a> <!-- child menu -->
+                              <a href="{{route('employer.post.create')}}" class="menu-link"><span class="menu-icon far fa-file"></span> <span class="menu-text">Đăng bài tuyển dụng</span> <span class="badge badge-warning">New</span></a> <!-- child menu -->
                           </li><!-- /.menu-item -->
                           <!-- .menu-item -->
                           <li class="menu-item">
-                              <a href="#" class="menu-link"><span class="menu-icon oi oi-wrench"></span> <span class="menu-text">Các bài đã đăng</span></a> <!-- child menu -->
+                              <a href="{{route('employer.post.index')}}" class="menu-link"><span class="menu-icon oi oi-wrench"></span> <span class="menu-text">Các bài đã đăng</span></a> <!-- child menu -->
                           </li><!-- /.menu-item -->
                           <!-- .menu-item -->
                       @endif
