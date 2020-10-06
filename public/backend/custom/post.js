@@ -8,6 +8,7 @@ $.ajaxSetup({
 flatpickr("#deadline", {});
 flatpickr("#date_public", {});
 
+
 $('#descriptions').summernote();
 $('#content').summernote();
 
@@ -30,11 +31,7 @@ $('#request_degree').select2({
     placeholder:"Chọn yêu cầu",
     width:'100%'
 });
-$('#request_old').select2({
-    minimumResultsForSearch: Infinity,
-    placeholder:"Chọn yêu cầu",
-    width:'100%'
-});
+
 $('#request_experience').select2({
     minimumResultsForSearch: Infinity,
     placeholder:"Chọn yêu cầu",
@@ -45,6 +42,9 @@ $('#request_sex').select2({
     placeholder:"Chọn yêu cầu",
     width:'100%'
 });
+
+flatpickr("#edit_deadline", {});
+flatpickr("#edit_date_public", {});
 
 $('#edit_descriptions').summernote();
 $('#edit_content').summernote();
@@ -68,11 +68,7 @@ $('#edit_request_degree').select2({
     placeholder:"Chọn yêu cầu",
     width:'100%'
 });
-$('#edit_request_old').select2({
-    minimumResultsForSearch: Infinity,
-    placeholder:"Chọn yêu cầu",
-    width:'100%'
-});
+
 $('#edit_request_experience').select2({
     minimumResultsForSearch: Infinity,
     placeholder:"Chọn yêu cầu",

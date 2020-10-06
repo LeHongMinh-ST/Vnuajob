@@ -16,8 +16,8 @@ class CreateTablePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title')->comment('tiêu đề bài đăng');
-            $table->string('descriptions')->nullable()->comment('mô tả');
-            $table->string('content')->comment('nội dung');
+            $table->text('descriptions')->nullable()->comment('mô tả');
+            $table->text('content')->comment('nội dung');
             $table->date('date_public')->nullable()->comment('Ngày tuyển dụng công khai');
             $table->string('vacancy')->comment('số lượng tuyển dụng');
             $table->string('salary')->comment('tiền lương');
